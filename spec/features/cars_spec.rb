@@ -3,6 +3,10 @@ require "rails_helper"
 RSpec.describe "Cars pages" do
   describe "index" do
     it "shows list of cars" do
+      create(:car, make: "Toyota", model: "Camry", model_year: "2005")
+      create(:car, make: "Toyota", model: "Corolla", model_year: "1999")
+      create(:car, make: "Ford", model: "Explorer", model_year: "2005")
+
       visit "/cars"
 
       rows = page.find_all(".cars > tr")
