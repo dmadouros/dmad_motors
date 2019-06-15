@@ -1,22 +1,20 @@
+<% @cars = [
+    OpenStruct.new(make: "Toyota", model: "Camry", model_year: "2005"),
+    OpenStruct.new(make: "Toyota", model: "Corolla", model_year: "1999"),
+    OpenStruct.new(make: "Ford", model: "Explorer", model_year: "2005"),
+] %>
+
 <table class="cars">
   <tr>
     <th class="cars__header cars__make">Make</th>
     <th class="cars__header cars__model">Model</th>
     <th class="cars__header cars__model-year">Model Year</th>
   </tr>
-  <tr>
-    <td class="cars__make">Toyota</td>
-    <td class="cars__model">Camry</td>
-    <td class="cars__model-year">2005</td>
-  </tr>
-  <tr>
-    <td class="cars__make">Toyota</td>
-    <td class="cars__model">Corolla</td>
-    <td class="cars__model-year">1999</td>
-  </tr>
-  <tr>
-    <td class="cars__make">Ford</td>
-    <td class="cars__model">Explorer</td>
-    <td class="cars__model-year">2005</td>
-  </tr>
+  <% @cars.each do |car| %>
+    <tr>
+      <td class="cars__make"><%= car.make %></td>
+      <td class="cars__model"><%= car.model %></td>
+      <td class="cars__model-year"><%= car.model_year %></td>
+    </tr>
+  <% end %>
 </table>
